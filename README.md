@@ -35,7 +35,9 @@ containing the error as `err` and the response as `res`.
 Using `body` means that it will send automatically return just the body from the
 response instead of the response and the body in an object.
 
-### request
+`options` is the same object/first parameter that you would pass to the request module.
+
+### request ( `options` )
 
 A Promisified `request` call.
 
@@ -59,7 +61,7 @@ request(options)
 	});
 ```
 
-### request.body
+### request.body ( `options` )
 
 The return of `request(options)` and will have the body automatically returned.
 
@@ -73,7 +75,7 @@ request(options)
 .catch(/* ... */);
 ```
 
-### request.defaults
+### request.defaults ( `options` )
 
 A Promisified `request.detaults` call.
 
@@ -101,7 +103,7 @@ twitchKraken({
 .catch(/* ... */);
 ```
 
-### request.defaults.body
+### request.defaults.body ( `options` )
 
 The return of `request.defaults(options)` and will have the body automatically
 returned.
@@ -127,7 +129,7 @@ twitchKraken({
 .catch(/* ... */);
 ```
 
-### request.json
+### request.json ( `options` )
 
 The return of `request.defaults({ json: true })`
 
@@ -151,7 +153,7 @@ request.json({
 .catch(/* ... */);
 ```
 
-### request.json.body
+### request.json.body ( `options` )
 
 The return of `request.defaults({ json: true })` and will have the body
 automatically returned.
