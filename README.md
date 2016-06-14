@@ -45,7 +45,7 @@ A Promisified `request` call.
 request(options)
 .then(data => {
 		/*
-			data == {
+			data = {
 						res: IncomingMessage,
 						body
 					}
@@ -53,7 +53,7 @@ request(options)
 	})
 .catch(e => {
 		/*
-			e == {
+			e = {
 						res: IncomingMessage,
 						err
 					}
@@ -69,7 +69,8 @@ The return of `request(options)` and will have the body automatically returned.
 request(options)
 .then(data => {
 		/*
-			data == body
+			data = body
+			data._res = res
 		*/
 	})
 .catch(/* ... */);
@@ -94,7 +95,7 @@ twitchKraken({
 	})
 .then(data => {
 		/*
-			data == {
+			data = {
 						res: IncomingMessage,
 						body
 					}
@@ -123,7 +124,8 @@ twitchKraken({
 	})
 .then(data => {
 		/*
-			data == body
+			data = body
+			data._res = res
 		*/
 	})
 .catch(/* ... */);
@@ -144,7 +146,7 @@ request.json({
 	})
 .then(data => {
 		/*
-			data == {
+			data = {
 						res: IncomingMessage,
 						body
 					}
@@ -169,7 +171,8 @@ request.json.body({
 	})
 .then(data => {
 		/*
-			data == body
+			data = body
+			data._res = res
 		*/
 	})
 .catch(/* ... */);

@@ -31,6 +31,13 @@ function handleResponse(resolve, reject) {
 		};
 }
 
+function _body(res) {
+	if(!res.body.hasOwnProperty('_res')) {
+		res.body._res = res.res;
+	}
+	return res.body;
+}
+
 function main(options) {
 	return new Promise((resolve, reject) => {
 		request(options, handleResponse(resolve, reject));
@@ -39,7 +46,7 @@ function main(options) {
 
 function body(options) {
 	return main(options)
-		.then(res => res.body);
+		.then(_body);
 }
 
 function defaults(options) {
@@ -52,7 +59,7 @@ function defaults(options) {
 function defaultsBody(options) {
 	let req = defaults(options);
 	return opts => req(opts)
-		.then(res => res.body);
+		.then(_body);
 }
 
 function json(options) {
@@ -61,7 +68,7 @@ function json(options) {
 
 function jsonBody(options) {
 	return json(options)
-		.then(data => data.body);
+		.then(_body);
 }
 
 module.exports = main;
