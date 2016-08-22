@@ -16,18 +16,16 @@ limitations under the License.
 
 'use strict';
 
-const request = require('request'),
-	
-	defaultJSON = defaults({ json: true });
+const request = require('request');
+
+let defaultJSON = defaults({ json: true });
 
 function handleResponse(resolve, reject) {
 	return (err, res, body) => {
 			if(err) {
-				reject({ err, res });
+				return reject({ err, res });
 			}
-			else {
-				resolve({ res, body });
-			}
+			resolve({ res, body });
 		};
 }
 
@@ -62,12 +60,8 @@ function defaultsBody(options) {
 		.then(_body);
 }
 
-function json(options) {
-	return defaultJSON(options);
-}
-
 function jsonBody(options) {
-	return json(options)
+	return defaultJSON
 		.then(_body);
 }
 
@@ -75,5 +69,5 @@ module.exports = main;
 module.exports.body = body;
 module.exports.defaults = defaults;
 module.exports.defaults.body = defaultsBody;
-module.exports.json = json;
+module.exports.json = defaultJSON;
 module.exports.json.body = jsonBody;
