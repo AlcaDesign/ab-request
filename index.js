@@ -58,7 +58,7 @@ function defaultsBody(options) {
 }
 
 function jsonBody(options) {
-	return defaultJSON
+	return defaultJSON(options)
 		.then(_body);
 }
 
