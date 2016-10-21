@@ -30,9 +30,6 @@ function handleResponse(resolve, reject) {
 }
 
 function _body(res) {
-	if(typeof res.body === 'object' && !res.body.hasOwnProperty('_res')) {
-		res.body._res = res.res;
-	}
 	return res.body;
 }
 
