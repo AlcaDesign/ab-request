@@ -1,6 +1,6 @@
 {
   "name": "ab-request",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "description": "The way I like to Request",
   "main": "index.js",
   "scripts": {
